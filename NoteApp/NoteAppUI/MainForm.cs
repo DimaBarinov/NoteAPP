@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,10 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NoteAppUI;
-/// <summary>
-/// Тест
-/// </summary>
+using NoteApp;
+using System.IO;
+
 
 namespace NoteAppUI
 {
@@ -19,11 +19,11 @@ namespace NoteAppUI
         public MainForm()
         {
             InitializeComponent();
+
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
