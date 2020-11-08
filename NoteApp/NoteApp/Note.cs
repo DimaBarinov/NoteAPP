@@ -13,7 +13,7 @@ namespace NoteApp
         /// <summary>
         /// Категории заметки
         /// </summary>
-        private string _noteCategory;
+        private NoteCategory _сategory;
         
         /// <summary>
         /// Текст заметки
@@ -23,12 +23,12 @@ namespace NoteApp
         /// <summary>
         /// Время создания заметки
         /// </summary>
-        private DateTime _timeCreate;
+        private readonly DateTime _сreate = DateTime.Now;
 
         /// <summary>
         /// Время последнего изменения заметки
         /// </summary>
-        private DateTime _timeLastChange;
+        private DateTime _modify;
 
 
         /// <summary>
@@ -47,15 +47,15 @@ namespace NoteApp
                 } 
                 else
                 {
-                    if (value != String.Empty)
-                    {
-                        _title = value;
-                    }
-                    else
+                    if (string.IsNullOrEmpty (value))
                     {
                         _title = "Без названия";
                     }
-                    TimeLastChange = DateTime.Now;
+                    else
+                    {
+                        _title = value;
+                    }
+                    Modify = DateTime.Now;
                 }
             }
         }
@@ -63,13 +63,13 @@ namespace NoteApp
         /// <summary>
         /// Свойство категории заметки
         /// </summary>
-        public string NoteCategory
+        public NoteCategory Category
         {
-            get => _noteCategory;
+            get => _сategory;
             set
             {
-                _noteCategory = value;
-                TimeLastChange = DateTime.Now;
+                _сategory = value;
+                Modify = DateTime.Now;
             }
 
         }
@@ -83,27 +83,27 @@ namespace NoteApp
             set
             {
                 _noteText = value;
-                TimeLastChange = DateTime.Now;
+                Modify = DateTime.Now;
             }
         }
 
         /// <summary>
         /// Свойство времени создания заметки
         /// </summary>
-        public DateTime TimeCreate
+        public DateTime Create
         {
-            get => _timeCreate;
+            get => _сreate;
         }
 
         /// <summary>
         /// Свойство времени последнего редактирования заметки
         /// </summary>
-        public DateTime TimeLastChange
+        public DateTime Modify
         {
-            get => _timeLastChange;
+            get => _modify;
             set
             {
-                _timeLastChange = DateTime.Now;
+                _modify = DateTime.Now;
             }
         }
 
@@ -116,10 +116,11 @@ namespace NoteApp
             return new Note
             {
                 Title = this.Title,
-                NoteCategory = this.NoteCategory,
+                Category = this.Category,
                 NoteText = this.NoteText,
-                TimeLastChange = this.TimeLastChange,
+                Modify = this.Modify,
             };
         }
+        
     }
 }

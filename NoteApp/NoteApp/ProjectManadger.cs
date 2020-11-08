@@ -7,26 +7,36 @@ namespace NoteApp
     /// <summary>
     /// Класс менеджера проекта
     /// </summary>
-    class ProjectManadger
+    public static class ProjectManager
     {
         /// <summary>
         /// Путь по которому сохраняется файл.
         /// </summary>
-        public string PathFile()
+        public static string PathFile()
         {
-            var filepath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            return filepath + @"\NoteApp\Note.json";
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            return path + @"\NoteApp\Note.txt";
+        }
+
+        /// <summary>
+        /// Папка в которую сохраняется файл.
+        /// </summary>
+        public static string PathDirectiry()
+        {
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            return path + @"\NoteApp\";
         }
 
         /// <summary>
         /// Метод сериализации данных.
         /// </summary>
-        /// <param name="data">Данные для сериализации.</param>
+        /// <param name="project">Данные для сериализации.</param>
         /// <param name="filepath">Путь до файла</param>
-        public void SaveFile(Project data, string filepath)
+        public static void SaveFile(Project project, string filepath)
         {
-            if (filepath == null)
+            if (Directory.Exists(filepath))
             {
+                Directory.CreateDirectory(PathDirectiry());
                 filepath = PathFile();
             }
             var serializer = new JsonSerializer();
@@ -34,17 +44,17 @@ namespace NoteApp
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 //Вызываем сериализацию и передаем объект, который хотим сериализовать.
-                serializer.Serialize(writer, data);
+                serializer.Serialize(writer, project);
             }
         }
 
         /// <summary>
         /// Метод десериализации данных.
         /// </summary>
-        public Project LoadFile(string filepath)
+        public static Project LoadFile(string filepath)
         {
             Project project;
-            if (!File.Exists(filepath))
+            if (!Directory.Exists(filepath))
             {
                 return new Project();
             }
