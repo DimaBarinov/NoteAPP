@@ -14,14 +14,14 @@ namespace NoteApp
         /// </summary>
         public static string PathFile()
         {
-            var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            return path + @"\NoteApp\Note.txt";
+            var path = PathDirectory();
+            return path + @"\Note.txt";
         }
 
         /// <summary>
         /// Папка в которую сохраняется файл.
         /// </summary>
-        public static string PathDirectiry()
+        public static string PathDirectory()
         {
             var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             return path + @"\NoteApp\";
@@ -36,8 +36,7 @@ namespace NoteApp
         {
             if (!Directory.Exists(filepath))
             {
-                Directory.CreateDirectory(PathDirectiry());
-                filepath = PathFile();
+                Directory.CreateDirectory(PathDirectory());
             }
             var serializer = new JsonSerializer();
             using (var sw = new StreamWriter(filepath))

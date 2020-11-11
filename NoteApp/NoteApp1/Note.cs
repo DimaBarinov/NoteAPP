@@ -2,6 +2,9 @@
 
 namespace NoteApp
 {
+    /// <summary>
+    /// Класс содержит основную информацию о заметке
+    /// </summary>
     public class Note : ICloneable
     {
 
@@ -14,7 +17,7 @@ namespace NoteApp
         /// Категории заметки
         /// </summary>
         private NoteCategory _сategory;
-        
+
         /// <summary>
         /// Текст заметки
         /// </summary>
@@ -28,7 +31,7 @@ namespace NoteApp
         /// <summary>
         /// Время последнего изменения заметки
         /// </summary>
-        private DateTime _modify; //modified
+        private DateTime _modified;
 
 
         /// <summary>
@@ -44,10 +47,10 @@ namespace NoteApp
                 if (value.ToString().Length > 50)
                 {
                     throw new ArgumentException("Длина названия не должна превышать 50 символов");
-                } 
+                }
                 else
                 {
-                    if (string.IsNullOrEmpty (value))
+                    if (string.IsNullOrEmpty(value))
                     {
                         _title = "Без названия";
                     }
@@ -55,7 +58,7 @@ namespace NoteApp
                     {
                         _title = value;
                     }
-                    Modify = DateTime.Now;
+                    Modified = DateTime.Now;
                 }
             }
         }
@@ -69,11 +72,11 @@ namespace NoteApp
             set
             {
                 _сategory = value;
-                Modify = DateTime.Now;
+                Modified = DateTime.Now;
             }
 
         }
-        
+
         /// <summary>
         /// Свойство текста заметки
         /// </summary>
@@ -83,7 +86,7 @@ namespace NoteApp
             set
             {
                 _noteText = value;
-                Modify = DateTime.Now;
+                Modified = DateTime.Now;
             }
         }
 
@@ -98,12 +101,12 @@ namespace NoteApp
         /// <summary>
         /// Свойство времени последнего редактирования заметки
         /// </summary>
-        public DateTime Modify
+        public DateTime Modified
         {
-            get => _modify;
+            get => _modified;
             set
             {
-                _modify = DateTime.Now;
+                _modified = DateTime.Now;
             }
         }
 
@@ -118,9 +121,9 @@ namespace NoteApp
                 Title = this.Title,
                 Category = this.Category,
                 NoteText = this.NoteText,
-                Modify = this.Modify,
+                Modified = this.Modified,
             };
         }
-        
+
     }
 }

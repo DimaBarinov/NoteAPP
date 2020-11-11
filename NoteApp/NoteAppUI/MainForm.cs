@@ -17,7 +17,7 @@ namespace NoteAppUI
             ColorComboBox.Items.Add(NoteCategory.Job);
             ColorComboBox.Items.Add(NoteCategory.People);
             ColorComboBox.Items.Add(NoteCategory.Sport);
-            ColorComboBox.Items.Add(NoteCategory.Sundries);
+            ColorComboBox.Items.Add(NoteCategory.Others);
             ColorComboBox.SelectedIndex = 0;
 
 
