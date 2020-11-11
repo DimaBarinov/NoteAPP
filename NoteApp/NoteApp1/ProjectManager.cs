@@ -32,7 +32,7 @@ namespace NoteApp
         /// </summary>
         /// <param name="project">Данные для сериализации.</param>
         /// <param name="filepath">Путь до файла</param>
-        public static void SaveFile(Project project, string filepath)
+        public static void SaveToFile(Project project, string filepath)
         {
             if (!Directory.Exists(filepath))
             {
@@ -50,7 +50,7 @@ namespace NoteApp
         /// <summary>
         /// Метод десериализации данных.
         /// </summary>
-        public static Project LoadFile(string filepath)
+        public static Project LoadToFile(string filepath)
         {
             Project project;
             if (!Directory.Exists(filepath))

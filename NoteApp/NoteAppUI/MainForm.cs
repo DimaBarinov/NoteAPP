@@ -29,10 +29,10 @@ namespace NoteAppUI
             };
             ///Сохранение в файл
             Project serialize = new Project { Notes = { note } };
-            ProjectManager.SaveFile(serialize, ProjectManager.PathFile());
+            ProjectManager.SaveToFile(serialize, ProjectManager.PathFile());
 
             ///Загрузка из файла
-            Project deserializa = ProjectManager.LoadFile(ProjectManager.PathFile());
+            Project deserializa = ProjectManager.LoadToFile(ProjectManager.PathFile());
         }
 
         private void MainForm_Load(object sender, EventArgs e)
