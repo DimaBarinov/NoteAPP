@@ -34,7 +34,7 @@ namespace NoteApp
         /// <param name="filepath">Путь до файла</param>
         public static void SaveFile(Project project, string filepath)
         {
-            if (Directory.Exists(filepath))
+            if (!Directory.Exists(filepath))
             {
                 Directory.CreateDirectory(PathDirectiry());
                 filepath = PathFile();
