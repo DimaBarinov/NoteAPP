@@ -26,7 +26,7 @@ namespace NoteApp
         /// <summary>
         /// Время создания заметки
         /// </summary>
-        private readonly DateTime _сreated = DateTime.Now;
+        private DateTime _сreated;
 
         /// <summary>
         /// Время последнего изменения заметки
@@ -93,22 +93,12 @@ namespace NoteApp
         /// <summary>
         /// Свойство времени создания заметки
         /// </summary>
-        public DateTime Created
-        {
-            get => _сreated;
-        }
+        public DateTime Created { get; set; } = DateTime.Now;
 
         /// <summary>
         /// Свойство времени последнего редактирования заметки
         /// </summary>
-        public DateTime Modified
-        {
-            get => _modified;
-            set
-            {
-                _modified = DateTime.Now;
-            }
-        }
+        public DateTime Modified { get; set; } = DateTime.Now;
 
         /// <summary>
         /// Метод клонирования
@@ -121,6 +111,7 @@ namespace NoteApp
                 Title = this.Title,
                 Category = this.Category,
                 NoteText = this.NoteText,
+                Created = this.Created,
                 Modified = this.Modified,
             };
         }

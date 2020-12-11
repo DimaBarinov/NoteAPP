@@ -12,11 +12,12 @@ namespace NoteApp
         /// <summary>
         /// Путь по которому сохраняется файл.
         /// </summary>
-        public static string PathFile()
-        {
-            var path = PathDirectory();
-            return path + @"\Note.txt";
-        }
+        private const string fileName = @"/Note.json";
+        //public static string PathFile()
+        //{
+        //    var path = PathDirectory();
+        //    return path + @"/Note.json";
+        //}
 
         /// <summary>
         /// Папка в которую сохраняется файл.
@@ -24,7 +25,7 @@ namespace NoteApp
         public static string PathDirectory()
         {
             var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            return path + @"\NoteApp\";
+            return path + @"/NoteApp/";
         }
 
         /// <summary>
@@ -39,8 +40,8 @@ namespace NoteApp
                 Directory.CreateDirectory(PathDirectory());
             }
             var serializer = new JsonSerializer();
-            using (var sw = new StreamWriter(filepath))
-            using (JsonWriter writer = new JsonTextWriter(sw))
+            using (var sw = new StreamWriter(filepath + fileName))
+            using (var writer = new JsonTextWriter(sw))
             {
                 //Вызываем сериализацию и передаем объект, который хотим сериализовать.
                 serializer.Serialize(writer, project);
@@ -60,7 +61,7 @@ namespace NoteApp
             JsonSerializer serializer = new JsonSerializer();
             try
             {
-                using (StreamReader sr = new StreamReader(filepath))
+                using (StreamReader sr = new StreamReader(filepath + fileName))
                 using (JsonReader reader = new JsonTextReader(sr))
                     project = serializer.Deserialize<Project>(reader);
             }
