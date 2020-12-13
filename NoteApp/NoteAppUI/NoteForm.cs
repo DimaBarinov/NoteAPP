@@ -66,7 +66,6 @@ namespace NoteAppUI
                 MessageBox.Show(e.Message, "Ошибка!",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void TitleTextBox_TextChanged(object sender, EventArgs e)

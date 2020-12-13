@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace NoteAppUI
 {
+    /// <summary>
+    /// Форма About.
+    /// </summary>
     public partial class AboutForm : Form
     {
         public AboutForm()
@@ -17,11 +12,17 @@ namespace NoteAppUI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Копирование почти при нажатии.
+        /// </summary>
         private void EmailLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Clipboard.SetText("dima.barinov98@list.ru");
         }
 
+        /// <summary>
+        /// Переход в GitHub при нажатии.
+        /// </summary>
         private void GitHubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/DimaBarinov/NoteAPP");

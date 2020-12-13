@@ -51,7 +51,7 @@ namespace NoteApp
         /// <summary>
         /// Метод десериализации данных.
         /// </summary>
-        public static Project LoadToFile(string filepath)
+        public static Project LoadFromFile(string filepath)
         {
             Project project;
             if (!Directory.Exists(filepath))

@@ -32,6 +32,7 @@
             this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TitleLabel = new System.Windows.Forms.Label();
             this.Categorylabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.ModifiefDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -53,13 +54,13 @@
             this.RempveNoteButton = new System.Windows.Forms.Button();
             this.EditNoteButton = new System.Windows.Forms.Button();
             this.AddNoteButton = new System.Windows.Forms.Button();
-            this.TitleLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CategoryComboBox
             // 
+            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryComboBox.FormattingEnabled = true;
             this.CategoryComboBox.Location = new System.Drawing.Point(100, 29);
             this.CategoryComboBox.Name = "CategoryComboBox";
@@ -95,6 +96,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(427, 423);
             this.panel1.TabIndex = 2;
+            // 
+            // TitleLabel
+            // 
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.Location = new System.Drawing.Point(24, 21);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(0, 16);
+            this.TitleLabel.TabIndex = 8;
             // 
             // Categorylabel
             // 
@@ -209,7 +219,7 @@
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
             this.ExitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.ExitToolStripMenuItem.ShowShortcutKeys = false;
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.ExitToolStripMenuItem.Text = "Exit";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -257,7 +267,7 @@
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
             this.AboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.AboutToolStripMenuItem.ShowShortcutKeys = false;
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.AboutToolStripMenuItem.Text = "About";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
@@ -305,15 +315,6 @@
             this.AddNoteButton.UseVisualStyleBackColor = false;
             this.AddNoteButton.Click += new System.EventHandler(this.AddNoteButton_Click);
             // 
-            // TitleLabel
-            // 
-            this.TitleLabel.AutoSize = true;
-            this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.Location = new System.Drawing.Point(24, 21);
-            this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(0, 16);
-            this.TitleLabel.TabIndex = 8;
-            // 
             // MainForm
             // 
             this.AutoScroll = true;
@@ -353,7 +354,6 @@
         private System.Windows.Forms.Label LabelTextBox;
         private System.Windows.Forms.Label LabelComboBox;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox CategoryComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox NoteTextTextBox;
@@ -378,6 +378,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label Categorylabel;
         private System.Windows.Forms.Label TitleLabel;
+        private System.Windows.Forms.ComboBox CategoryComboBox;
     }
 }
 

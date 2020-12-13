@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 using NoteApp;
 
 namespace NoteAppUI
 {
+    /// <summary>
+    /// Главное окно программы.
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
-        /// Данные, которые будем передавать
+        /// Хранилище заметок.
         /// </summary>
         private Project _project = new Project();
 
@@ -20,7 +21,7 @@ namespace NoteAppUI
         }
 
         /// <summary>
-        /// Добавление новой заметки
+        /// Добавление новой заметки.
         /// </summary>
         private void AddNote()
         {
@@ -34,6 +35,9 @@ namespace NoteAppUI
             }
         }
 
+        /// <summary>
+        /// Редактирование заметки.
+        /// </summary>
         private void EditNote()
         {
             if (NoteListBox.SelectedIndex != -1)
@@ -54,6 +58,9 @@ namespace NoteAppUI
             }
         }
 
+        /// <summary>
+        /// Удаление заметки.
+        /// </summary>
         private void DeleteNote()
         {
             if(NoteListBox.SelectedIndex != -1)
@@ -66,7 +73,7 @@ namespace NoteAppUI
                     NoteListBox.Items.RemoveAt(NoteListBox.SelectedIndex);
                     ProjectManager.SaveToFile(_project, ProjectManager.PathDirectory());
                 }
-                RemoveSelection();
+                ClearSelection();
             }
         }
 
@@ -74,36 +81,57 @@ namespace NoteAppUI
         {
         }
 
+        /// <summary>
+        /// Добавление новой заметки через меню.
+        /// </summary>
         private void AddNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddNote();
         }
 
+        /// <summary>
+        /// Добавление новой заметки по нажатию на add.
+        /// </summary>
         private void AddNoteButton_Click(object sender, EventArgs e)
         {
             AddNote();
         }
 
+        /// <summary>
+        /// Редактирование заметки через меню.
+        /// </summary>
         private void editNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditNote();
         }
 
+        /// <summary>
+        /// Редактирование заметки по нажатию на edit.
+        /// </summary>
         private void EditNoteButton_Click(object sender, EventArgs e)
         {
             EditNote();
         }
 
+        /// <summary>
+        /// Удаление заметки по нажатию нa remove.
+        /// </summary>
         private void RempveNoteButton_Click(object sender, EventArgs e)
         {
             DeleteNote();
         }
 
+        /// <summary>
+        /// Удаление заметки через меню.
+        /// </summary>
         private void removeNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeleteNote();
         }
 
+        /// <summary>
+        /// Вывод информации о выбранной заметки. 
+        /// </summary>
         private void NotesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (NoteListBox.SelectedIndex >= 0)
@@ -117,7 +145,10 @@ namespace NoteAppUI
             }
         }
 
-        private void RemoveSelection()
+        /// <summary>
+        /// Очищение полей, после удаления выбранной заметки.
+        /// </summary>
+        private void ClearSelection()
         {
                 NoteListBox.ClearSelected();
                 TitleLabel.Text = "";
@@ -127,25 +158,37 @@ namespace NoteAppUI
                 NoteTextTextBox.Text = "";
         }
 
+        /// <summary>
+        /// Загрузка из файла.
+        /// </summary>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _project = ProjectManager.LoadToFile(ProjectManager.PathDirectory());
+            _project = ProjectManager.LoadFromFile(ProjectManager.PathDirectory());
             foreach (var item in _project.Notes)
             {
                 NoteListBox.Items.Add(item.Title);
             }
         }
 
+        /// <summary>
+        /// Закрытие главного окна через меню.
+        /// </summary>
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Сохранение в файл при закрытии главного окна.
+        /// </summary>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             ProjectManager.SaveToFile(_project, ProjectManager.PathDirectory());
         }
 
+        /// <summary>
+        /// Вызов окна About.
+        /// </summary>
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm aboutForm = new AboutForm();
