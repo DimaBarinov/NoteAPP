@@ -31,7 +31,7 @@ namespace NoteAppUI
             {
                 _project.Notes.Add(addNote.Note);
                 NoteListBox.Items.Add(addNote.Note.Title);
-                ProjectManager.SaveToFile(_project, ProjectManager.pathDirectory);
+                ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
         }
 
@@ -53,7 +53,7 @@ namespace NoteAppUI
                     _project.Notes.Insert(selectedIndex, editNote.Note);
                     NoteListBox.Items.Insert(selectedIndex, editNote.Note.Title);
                     NoteListBox.SelectedIndex = selectedIndex;
-                    ProjectManager.SaveToFile(_project, ProjectManager.pathDirectory);
+                    ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
                 }
             }
         }
@@ -71,7 +71,7 @@ namespace NoteAppUI
                 {
                     _project.Notes.RemoveAt(NoteListBox.SelectedIndex);
                     NoteListBox.Items.RemoveAt(NoteListBox.SelectedIndex);
-                    ProjectManager.SaveToFile(_project, ProjectManager.pathDirectory);
+                    ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
                 }
                 ClearSelection();
             }
@@ -163,7 +163,7 @@ namespace NoteAppUI
         /// </summary>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _project = ProjectManager.LoadFromFile(ProjectManager.pathDirectory);
+            _project = ProjectManager.LoadFromFile(ProjectManager.DefaultPath);
             foreach (var item in _project.Notes)
             {
                 NoteListBox.Items.Add(item.Title);
@@ -183,7 +183,7 @@ namespace NoteAppUI
         /// </summary>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ProjectManager.SaveToFile(_project, ProjectManager.pathDirectory);
+            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
         }
 
         

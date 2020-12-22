@@ -10,16 +10,17 @@ namespace NoteApp
     public static class ProjectManager
     {
         /// <summary>
-        /// Имя сохраняемого файла.
+        /// Путь к файлу.
         /// </summary>
-        private const string fileName = @"/Note.json";
-        //public static string PathFile()
-        //{
-        //    var path = PathDirectory();
-        //    return path + @"/Note.json";
-        //}
+        private static string _defaultPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Note.notes";
 
-        public static string pathDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"/NoteApp/";
+        /// <summary>
+        /// Свойство для пути к файлу.
+        /// </summary>
+        public static string DefaultPath
+        {
+            get => _defaultPath;
+        }
 
         /// <summary>
         /// Метод сериализации данных.
@@ -28,12 +29,8 @@ namespace NoteApp
         /// <param name="filepath">Путь до файла</param>
         public static void SaveToFile(Project project, string filePath)
         {
-            if (!Directory.Exists(filePath))
-            {
-                Directory.CreateDirectory(pathDirectory);
-            }
             var serializer = new JsonSerializer();
-            using (var sw = new StreamWriter(filePath + fileName))
+            using (var sw = new StreamWriter(filePath))
             using (var writer = new JsonTextWriter(sw))
             {
                 //Вызываем сериализацию и передаем объект, который хотим сериализовать.
@@ -47,14 +44,10 @@ namespace NoteApp
         public static Project LoadFromFile(string filepath)
         {
             Project project;
-            if (!Directory.Exists(filepath))
-            {
-                return new Project();
-            }
             JsonSerializer serializer = new JsonSerializer();
             try
             {
-                using (StreamReader sr = new StreamReader(filepath + fileName))
+                using (StreamReader sr = new StreamReader(filepath))
                 using (JsonReader reader = new JsonTextReader(sr))
                     project = serializer.Deserialize<Project>(reader);
             }

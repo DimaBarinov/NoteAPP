@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace NoteApp
@@ -12,6 +13,6 @@ namespace NoteApp
         /// <summary>
         /// Содержит список всех заметок
         /// </summary>
-        public List<Note> Notes = new List<Note>();
+        public ObservableCollection<Note> Notes = new ObservableCollectio<Note>();
     }
 }
