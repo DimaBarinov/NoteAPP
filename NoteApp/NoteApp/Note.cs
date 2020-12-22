@@ -25,7 +25,7 @@ namespace NoteApp
 
         /// <summary>
         /// Время создания заметки
-        /// </summary>
+        /// </summary> 
         private DateTime _сreated;
 
         /// <summary>

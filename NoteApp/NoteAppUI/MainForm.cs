@@ -186,6 +186,8 @@ namespace NoteAppUI
             ProjectManager.SaveToFile(_project, ProjectManager.PathDirectory());
         }
 
+        
+
         /// <summary>
         /// Вызов окна About.
         /// </summary>
