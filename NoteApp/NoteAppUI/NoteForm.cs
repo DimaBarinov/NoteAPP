@@ -7,17 +7,17 @@ namespace NoteAppUI
 {
     public partial class NoteForm : Form
     {
-        private Note _tempNote = new Note();
+        private Note _note = new Note();
 
         /// <summary>
         /// Временное хранилище данных
         /// </summary>
-        public Note TempNote
+        public Note Note
         {
-            get => _tempNote;
+            get => _note;
             set
             {
-                _tempNote = value;
+                _note = value;
                 TitleTextBox.Text = value.Title;
                 NoteTextTextBox.Text = value.NoteText;
                 CategoryComboBox.Text = value.Category.ToString();
@@ -37,7 +37,16 @@ namespace NoteAppUI
         /// </summary>
         private void OkButton_Click(object sender, EventArgs e)
         {
-            NewNote();
+            try
+            {
+                NewNote();
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -48,26 +57,22 @@ namespace NoteAppUI
             Close();
         }
 
-
+        /// <summary>
+        /// Создание новой заметки
+        /// </summary>
         private void NewNote()
         {
-            try
-            {
-                string text = TitleTextBox.Text;
-                TempNote.Title = text;
-                TempNote.NoteText = NoteTextTextBox.Text;
-                TempNote.Created = CreatedDateTimePicker.Value;
-                TempNote.Modified = ModifiedDateTimePicker.Value;
-                TempNote.Category = (NoteCategory)CategoryComboBox.SelectedItem;
-                DialogResult = DialogResult.OK;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Ошибка!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            string text = TitleTextBox.Text;
+                Note.Title = text;
+                Note.NoteText = NoteTextTextBox.Text;
+                Note.Created = CreatedDateTimePicker.Value;
+                Note.Modified = ModifiedDateTimePicker.Value;
+                Note.Category = (NoteCategory)CategoryComboBox.SelectedItem;
         }
 
+        /// <summary>
+        /// Окраска полей, если введено более 50 символов
+        /// </summary>
         private void TitleTextBox_TextChanged(object sender, EventArgs e)
         {
             if (TitleTextBox.Text.Length > 50)

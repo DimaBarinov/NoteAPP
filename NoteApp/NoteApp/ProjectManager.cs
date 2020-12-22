@@ -10,7 +10,7 @@ namespace NoteApp
     public static class ProjectManager
     {
         /// <summary>
-        /// Путь по которому сохраняется файл.
+        /// Имя сохраняемого файла.
         /// </summary>
         private const string fileName = @"/Note.json";
         //public static string PathFile()
@@ -19,28 +19,21 @@ namespace NoteApp
         //    return path + @"/Note.json";
         //}
 
-        /// <summary>
-        /// Папка в которую сохраняется файл.
-        /// </summary>
-        public static string PathDirectory()
-        {
-            var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            return path + @"/NoteApp/";
-        }
+        public static string pathDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"/NoteApp/";
 
         /// <summary>
         /// Метод сериализации данных.
         /// </summary>
         /// <param name="project">Данные для сериализации.</param>
         /// <param name="filepath">Путь до файла</param>
-        public static void SaveToFile(Project project, string filepath)
+        public static void SaveToFile(Project project, string filePath)
         {
-            if (!Directory.Exists(filepath))
+            if (!Directory.Exists(filePath))
             {
-                Directory.CreateDirectory(PathDirectory());
+                Directory.CreateDirectory(pathDirectory);
             }
             var serializer = new JsonSerializer();
-            using (var sw = new StreamWriter(filepath + fileName))
+            using (var sw = new StreamWriter(filePath + fileName))
             using (var writer = new JsonTextWriter(sw))
             {
                 //Вызываем сериализацию и передаем объект, который хотим сериализовать.

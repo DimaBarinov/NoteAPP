@@ -29,9 +29,9 @@ namespace NoteAppUI
             DialogResult dialogResult = addNote.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                _project.Notes.Add(addNote.TempNote);
-                NoteListBox.Items.Add(addNote.TempNote.Title);
-                ProjectManager.SaveToFile(_project, ProjectManager.PathDirectory());
+                _project.Notes.Add(addNote.Note);
+                NoteListBox.Items.Add(addNote.Note.Title);
+                ProjectManager.SaveToFile(_project, ProjectManager.pathDirectory);
             }
         }
 
@@ -44,16 +44,16 @@ namespace NoteAppUI
             {
                 var selectedIndex = NoteListBox.SelectedIndex;
                 var selectedNote = _project.Notes[selectedIndex];
-                NoteForm editNote = new NoteForm { TempNote = selectedNote };
-                DialogResult dialogResul = editNote.ShowDialog();
-                if (dialogResul == DialogResult.OK)
+                NoteForm editNote = new NoteForm { Note = selectedNote };
+                DialogResult dialogResult = editNote.ShowDialog();
+                if (dialogResult == DialogResult.OK)
                 {
                     _project.Notes.RemoveAt(selectedIndex);
                     NoteListBox.Items.RemoveAt(selectedIndex);
-                    _project.Notes.Insert(selectedIndex, editNote.TempNote);
-                    NoteListBox.Items.Insert(selectedIndex, editNote.TempNote.Title);
+                    _project.Notes.Insert(selectedIndex, editNote.Note);
+                    NoteListBox.Items.Insert(selectedIndex, editNote.Note.Title);
                     NoteListBox.SelectedIndex = selectedIndex;
-                    ProjectManager.SaveToFile(_project, ProjectManager.PathDirectory());
+                    ProjectManager.SaveToFile(_project, ProjectManager.pathDirectory);
                 }
             }
         }
@@ -61,7 +61,7 @@ namespace NoteAppUI
         /// <summary>
         /// Удаление заметки.
         /// </summary>
-        private void DeleteNote()
+        private void RemoveNote()
         {
             if(NoteListBox.SelectedIndex != -1)
             {
@@ -71,7 +71,7 @@ namespace NoteAppUI
                 {
                     _project.Notes.RemoveAt(NoteListBox.SelectedIndex);
                     NoteListBox.Items.RemoveAt(NoteListBox.SelectedIndex);
-                    ProjectManager.SaveToFile(_project, ProjectManager.PathDirectory());
+                    ProjectManager.SaveToFile(_project, ProjectManager.pathDirectory);
                 }
                 ClearSelection();
             }
@@ -100,7 +100,7 @@ namespace NoteAppUI
         /// <summary>
         /// Редактирование заметки через меню.
         /// </summary>
-        private void editNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EditNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditNote();
         }
@@ -116,9 +116,9 @@ namespace NoteAppUI
         /// <summary>
         /// Удаление заметки по нажатию нa remove.
         /// </summary>
-        private void RempveNoteButton_Click(object sender, EventArgs e)
+        private void RemoveNoteButton_Click(object sender, EventArgs e)
         {
-            DeleteNote();
+            RemoveNote();
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace NoteAppUI
         /// </summary>
         private void removeNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DeleteNote();
+            RemoveNote();
         }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace NoteAppUI
         /// </summary>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _project = ProjectManager.LoadFromFile(ProjectManager.PathDirectory());
+            _project = ProjectManager.LoadFromFile(ProjectManager.pathDirectory);
             foreach (var item in _project.Notes)
             {
                 NoteListBox.Items.Add(item.Title);
@@ -183,7 +183,7 @@ namespace NoteAppUI
         /// </summary>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ProjectManager.SaveToFile(_project, ProjectManager.PathDirectory());
+            ProjectManager.SaveToFile(_project, ProjectManager.pathDirectory);
         }
 
         

@@ -47,11 +47,11 @@
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.RempveNoteButton = new System.Windows.Forms.Button();
+            this.RemoveNoteButton = new System.Windows.Forms.Button();
             this.EditNoteButton = new System.Windows.Forms.Button();
             this.AddNoteButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -127,7 +127,7 @@
             this.ModifiefDateTimePicker.Enabled = false;
             this.ModifiefDateTimePicker.Location = new System.Drawing.Point(255, 60);
             this.ModifiefDateTimePicker.Name = "ModifiefDateTimePicker";
-            this.ModifiefDateTimePicker.Size = new System.Drawing.Size(117, 20);
+            this.ModifiefDateTimePicker.Size = new System.Drawing.Size(119, 20);
             this.ModifiefDateTimePicker.TabIndex = 5;
             // 
             // CreatedDateTimePicker
@@ -227,7 +227,7 @@
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddNoteToolStripMenuItem,
-            this.editNoteToolStripMenuItem,
+            this.EditNoteToolStripMenuItem,
             this.removeNoteToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
@@ -240,12 +240,12 @@
             this.AddNoteToolStripMenuItem.Text = "Add Note";
             this.AddNoteToolStripMenuItem.Click += new System.EventHandler(this.AddNoteToolStripMenuItem_Click);
             // 
-            // editNoteToolStripMenuItem
+            // EditNoteToolStripMenuItem
             // 
-            this.editNoteToolStripMenuItem.Name = "editNoteToolStripMenuItem";
-            this.editNoteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.editNoteToolStripMenuItem.Text = "Edit Note";
-            this.editNoteToolStripMenuItem.Click += new System.EventHandler(this.editNoteToolStripMenuItem_Click);
+            this.EditNoteToolStripMenuItem.Name = "EditNoteToolStripMenuItem";
+            this.EditNoteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.EditNoteToolStripMenuItem.Text = "Edit Note";
+            this.EditNoteToolStripMenuItem.Click += new System.EventHandler(this.EditNoteToolStripMenuItem_Click);
             // 
             // removeNoteToolStripMenuItem
             // 
@@ -271,19 +271,19 @@
             this.AboutToolStripMenuItem.Text = "About";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
-            // RempveNoteButton
+            // RemoveNoteButton
             // 
-            this.RempveNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RempveNoteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RempveNoteButton.BackgroundImage")));
-            this.RempveNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RempveNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RempveNoteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RempveNoteButton.Location = new System.Drawing.Point(88, 437);
-            this.RempveNoteButton.Name = "RempveNoteButton";
-            this.RempveNoteButton.Size = new System.Drawing.Size(32, 32);
-            this.RempveNoteButton.TabIndex = 7;
-            this.RempveNoteButton.UseVisualStyleBackColor = true;
-            this.RempveNoteButton.Click += new System.EventHandler(this.RempveNoteButton_Click);
+            this.RemoveNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RemoveNoteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RemoveNoteButton.BackgroundImage")));
+            this.RemoveNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RemoveNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveNoteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.RemoveNoteButton.Location = new System.Drawing.Point(88, 437);
+            this.RemoveNoteButton.Name = "RemoveNoteButton";
+            this.RemoveNoteButton.Size = new System.Drawing.Size(32, 32);
+            this.RemoveNoteButton.TabIndex = 7;
+            this.RemoveNoteButton.UseVisualStyleBackColor = true;
+            this.RemoveNoteButton.Click += new System.EventHandler(this.RemoveNoteButton_Click);
             // 
             // EditNoteButton
             // 
@@ -320,7 +320,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(704, 481);
             this.Controls.Add(this.AddNoteButton);
-            this.Controls.Add(this.RempveNoteButton);
+            this.Controls.Add(this.RemoveNoteButton);
             this.Controls.Add(this.EditNoteButton);
             this.Controls.Add(this.NoteListBox);
             this.Controls.Add(this.panel1);
@@ -368,11 +368,11 @@
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AddNoteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editNoteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditNoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeNoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
-        private System.Windows.Forms.Button RempveNoteButton;
+        private System.Windows.Forms.Button RemoveNoteButton;
         private System.Windows.Forms.Button EditNoteButton;
         private System.Windows.Forms.Button AddNoteButton;
         private System.Windows.Forms.Label label5;
