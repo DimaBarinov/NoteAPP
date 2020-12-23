@@ -116,5 +116,18 @@ namespace NoteApp
             };
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is Note note)
+            {
+                return (note.Title == this.Title) &&
+                       (note.NoteText == this.NoteText) &&
+                       (note.Created == this.Created) &&
+                       (note.Modified == this.Modified) &&
+                       (note.Category == this.Category);
+            }
+            return false;
+        }
+
     }
 }

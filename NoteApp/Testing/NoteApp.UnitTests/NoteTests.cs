@@ -108,21 +108,6 @@ namespace NoteApp.UnitTests
         }
 
         [Test]
-        public void Category_GoodCategory_ReturnsSaveCategory()
-        {
-            // Setup
-            var sourceCategory = NoteCategory.Finance;
-            var expectedCategory = sourceCategory;
-
-            // Act
-            _note.Category = sourceCategory;
-            var actCreated = _note.Category;
-
-            // Assert
-            Assert.AreEqual(expectedCategory, actCreated);
-        }
-
-        [Test]
         public void Clone_GoodClone_ReturnsSaveClone()
         {
             // Setup
@@ -134,14 +119,10 @@ namespace NoteApp.UnitTests
                 Created = new DateTime(2020, 12, 01),
                 Modified = new DateTime(2020, 12, 01)
             };
-            var expectedClone = JsonConvert.SerializeObject(sourceClone);
-
-            // Act
-            var act = (Note) sourceClone.Clone();
-            var actClone = JsonConvert.SerializeObject(act);
+            var expectedClone = (Note) sourceClone.Clone(); /*JsonConvert.SerializeObject(sourceClone);*/
 
             // Assert 
-            Assert.AreEqual(expectedClone, actClone);
+            Assert.AreEqual(expectedClone, sourceClone);
         }
     }
 }

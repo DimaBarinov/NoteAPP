@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace NoteApp.UnitTests
@@ -68,10 +67,16 @@ namespace NoteApp.UnitTests
             var actualProject = ProjectManager.LoadFromFile(expectedFileName);
 
             // Assert
-            var actualFileContent = JsonConvert.SerializeObject(actualProject);
-            var expectedFileContent = JsonConvert.SerializeObject(sourceProject);
-            Assert.AreEqual(expectedFileContent, actualFileContent);
-
+            Assert.AreEqual(sourceProject.Notes.Count, actualProject.Notes.Count);
+            Assert.Multiple(() =>
+            {
+                int i = 0;
+                while ( i < sourceProject.Notes.Count)
+                {
+                    Assert.AreEqual(sourceProject.Notes[i], actualProject.Notes[i]);
+                    i++;
+                }
+            });
         }
 
         [Test]
@@ -87,10 +92,16 @@ namespace NoteApp.UnitTests
             var actualProject = ProjectManager.LoadFromFile(expectedFileName);
 
             // Assert
-            var actualFileContent = JsonConvert.SerializeObject(actualProject);
-            var expectedFileContent = JsonConvert.SerializeObject(sourceProject);
-            Assert.AreEqual(expectedFileContent, actualFileContent);
-
+            Assert.AreEqual(sourceProject.Notes.Count, actualProject.Notes.Count);
+            Assert.Multiple(() =>
+            {
+                int i = 0;
+                while (i < sourceProject.Notes.Count)
+                {
+                    Assert.AreEqual(sourceProject.Notes[i], actualProject.Notes[i]);
+                    i++;
+                }
+            });
         }
 
         [Test]
