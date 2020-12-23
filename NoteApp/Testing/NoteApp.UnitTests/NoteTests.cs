@@ -108,6 +108,21 @@ namespace NoteApp.UnitTests
         }
 
         [Test]
+        public void Category_GoodCategory_ReturnsSaveCategory()
+        {
+            // Setup
+            var sourceCategory = NoteCategory.Finance;
+            var expectedCategory = sourceCategory;
+
+            // Act
+            _note.Category = sourceCategory;
+            var actCreated = _note.Category;
+
+            // Assert
+            Assert.AreEqual(expectedCategory, actCreated);
+        }
+
+        [Test]
         public void Clone_GoodClone_ReturnsSaveClone()
         {
             // Setup
