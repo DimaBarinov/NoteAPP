@@ -7,24 +7,18 @@ namespace NoteApp.UnitTests
     [TestFixture]
     public class NoteTests
     {
-        private Note _note;
-
-        [SetUp]
-        public void InitNote()
-        {
-            _note = new Note();
-        }
 
         [Test]
         public void Title_GoodTitle_ReturnsSaveTitle()
         {
             // Setup
+            Note note = new Note();
             var sourceTitle = "12345678901234567890123456789012345678901234567890";
             var expectedTitle = sourceTitle;
 
             // Act
-            _note.Title = sourceTitle;
-            var actTitle = _note.Title;
+            note.Title = sourceTitle;
+            var actTitle = note.Title;
 
             // Assert
             Assert.AreEqual(expectedTitle, actTitle);
@@ -34,6 +28,7 @@ namespace NoteApp.UnitTests
         public void Title_TooLongTitle_ThrowsException()
         {
             // Setup
+            Note note = new Note();
             var sourceTitle = "123456789012345678901234567890123456789012345678901";
 
             // Assert
@@ -42,7 +37,7 @@ namespace NoteApp.UnitTests
                 () =>
                 {
                     // Act
-                    _note.Title = sourceTitle;
+                    note.Title = sourceTitle;
                 }
             );
         }
@@ -51,12 +46,13 @@ namespace NoteApp.UnitTests
         public void Title_EmptyTitle_ReturnsDefaultTitle()
         {
             // Setup
+            Note note = new Note();
             var sourceTitle = "";
             var expectedTitle = "Без названия";
 
             // Act
-            _note.Title = sourceTitle;
-            var actTitle = _note.Title;
+            note.Title = sourceTitle;
+            var actTitle = note.Title;
 
             // Assert
             Assert.AreEqual(expectedTitle, actTitle);
@@ -66,12 +62,13 @@ namespace NoteApp.UnitTests
         public void NoteText_GoodNoteText_ReturnsSaveNoteText()
         {
             // Setup
+            Note note = new Note();
             var sourceNoteText = "Допустим, что это корректные тестовые данные!";
             var expectedNoteText = sourceNoteText;
 
             // Act
-            _note.NoteText = sourceNoteText;
-            var actNoteText = _note.NoteText;
+            note.NoteText = sourceNoteText;
+            var actNoteText = note.NoteText;
 
             // Assert 
             Assert.AreEqual(expectedNoteText, actNoteText);
@@ -81,12 +78,13 @@ namespace NoteApp.UnitTests
         public void Created_GoodCreated_ReturnsSaveCreated()
         {
             // Setup
+            Note note = new Note();
             var sourceCreated = new DateTime(2020, 12, 01);
             var expectedCreated = sourceCreated;
 
             // Act
-            _note.Created = sourceCreated;
-            var actCreated = _note.Created;
+            note.Created = sourceCreated;
+            var actCreated = note.Created;
             
             // Assert
             Assert.AreEqual( expectedCreated, actCreated);
@@ -96,12 +94,13 @@ namespace NoteApp.UnitTests
         public void Modified_GoodModified_ReturnsSaveModified()
         {
             // Setup
+            Note note = new Note();
             var sourceModified = new DateTime(2020, 12, 01);
             var expectedModified = sourceModified;
 
             // Act
-            _note.Modified = sourceModified;
-            var actCreated = _note.Modified;
+            note.Modified = sourceModified;
+            var actCreated = note.Modified;
 
             // Assert
             Assert.AreEqual(expectedModified, actCreated);

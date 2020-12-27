@@ -12,7 +12,7 @@ namespace NoteApp
         /// <summary>
         /// Путь к файлу.
         /// </summary>
-        private static string _defaultPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Note.notes";
+        private static string _defaultPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\NoteApp\Note.notes";
 
         /// <summary>
         /// Свойство для пути к файлу.
@@ -29,6 +29,7 @@ namespace NoteApp
         /// <param name="filepath">Путь до файла</param>
         public static void SaveToFile(Project project, string filePath)
         {
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
             var serializer = new JsonSerializer();
             using (var sw = new StreamWriter(filePath))
             using (var writer = new JsonTextWriter(sw))

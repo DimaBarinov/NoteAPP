@@ -70,11 +70,9 @@ namespace NoteApp.UnitTests
             Assert.AreEqual(sourceProject.Notes.Count, actualProject.Notes.Count);
             Assert.Multiple(() =>
             {
-                int i = 0;
-                while ( i < sourceProject.Notes.Count)
+                for (int i = 0; i < sourceProject.Notes.Count; i++)
                 {
                     Assert.AreEqual(sourceProject.Notes[i], actualProject.Notes[i]);
-                    i++;
                 }
             });
         }
@@ -83,7 +81,6 @@ namespace NoteApp.UnitTests
         public void LoadFromFile_NoCorrectProject_CreatedNewProject()
         {
             // Setup
-            var sourceProject = new Project();
             var location = Assembly.GetExecutingAssembly().Location;
             var directoryTestData = Directory.CreateDirectory(Path.GetDirectoryName(location) + @"\TestData");
             var expectedFileName = directoryTestData + @"\noCorrectProject.json";
@@ -92,23 +89,14 @@ namespace NoteApp.UnitTests
             var actualProject = ProjectManager.LoadFromFile(expectedFileName);
 
             // Assert
-            Assert.AreEqual(sourceProject.Notes.Count, actualProject.Notes.Count);
-            Assert.Multiple(() =>
-            {
-                int i = 0;
-                while (i < sourceProject.Notes.Count)
-                {
-                    Assert.AreEqual(sourceProject.Notes[i], actualProject.Notes[i]);
-                    i++;
-                }
-            });
+            Assert.NotNull(actualProject);
         }
 
         [Test]
         public void DefaultPath_GoodDefaultPath_ReturnsSaveDefaultPath()
         {
             // Setup
-            var expectedDefaultPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Note.notes";
+            var expectedDefaultPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\NoteApp\Note.notes";
 
             // Act
             var actualDefaultPat = ProjectManager.DefaultPath;
