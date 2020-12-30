@@ -77,10 +77,6 @@ namespace NoteAppUI
             }
         }
 
-        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
         /// <summary>
         /// Добавление новой заметки через меню.
         /// </summary>
@@ -195,11 +191,6 @@ namespace NoteAppUI
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
-        }
-
-        private void NoteTextTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

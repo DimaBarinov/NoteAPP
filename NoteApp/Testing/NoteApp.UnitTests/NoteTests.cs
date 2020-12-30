@@ -118,7 +118,7 @@ namespace NoteApp.UnitTests
                 Created = new DateTime(2020, 12, 01),
                 Modified = new DateTime(2020, 12, 01)
             };
-            var expectedClone = (Note) sourceClone.Clone(); /*JsonConvert.SerializeObject(sourceClone);*/
+            var expectedClone = (Note) sourceClone.Clone();
 
             // Assert 
             Assert.AreEqual(expectedClone, sourceClone);
