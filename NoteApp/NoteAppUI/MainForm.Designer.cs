@@ -180,6 +180,7 @@
             this.NoteTextTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.NoteTextTextBox.Size = new System.Drawing.Size(424, 337);
             this.NoteTextTextBox.TabIndex = 0;
+            this.NoteTextTextBox.TextChanged += new System.EventHandler(this.NoteTextTextBox_TextChanged);
             // 
             // NoteListBox
             // 

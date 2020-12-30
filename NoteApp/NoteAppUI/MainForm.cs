@@ -196,5 +196,10 @@ namespace NoteAppUI
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
         }
+
+        private void NoteTextTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
