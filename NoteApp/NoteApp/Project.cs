@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+using System.Linq;
 
 namespace NoteApp
 {
@@ -13,6 +12,20 @@ namespace NoteApp
         /// <summary>
         /// Содержит список всех заметок
         /// </summary>
-        public ObservableCollection<Note> Notes = new ObservableCollectio<Note>();
+        public List<Note> Notes = new List<Note>();
+       
+        /// <summary>
+        /// Текущий индекс заметки
+        /// </summary>
+        public int CurrentIndexNote { get; set; }
+
+        public List<Note> SortByEditing(List<Note> _notesToSort)
+        {
+            return _notesToSort = _notesToSort.OrderByDescending(item => item.Modified).ToList();
+        }
+        public List<Note> SortByEditing(List<Note> _notesToSort, NoteCategory category)
+        {
+            return _notesToSort = _notesToSort.Where(item => item.Category == category).OrderByDescending(item => item.Modified).ToList();
+        }
     }
 }

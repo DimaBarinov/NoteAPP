@@ -75,7 +75,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(220, 64);
+            this.label4.Location = new System.Drawing.Point(215, 64);
+            this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 3;
@@ -84,31 +85,31 @@
             // CreatedDateTimePicker
             // 
             this.CreatedDateTimePicker.Enabled = false;
-            this.CreatedDateTimePicker.Location = new System.Drawing.Point(70, 59);
+            this.CreatedDateTimePicker.Location = new System.Drawing.Point(65, 59);
             this.CreatedDateTimePicker.Name = "CreatedDateTimePicker";
-            this.CreatedDateTimePicker.Size = new System.Drawing.Size(133, 20);
+            this.CreatedDateTimePicker.Size = new System.Drawing.Size(120, 20);
             this.CreatedDateTimePicker.TabIndex = 4;
             // 
             // ModifiedDateTimePicker
             // 
             this.ModifiedDateTimePicker.Enabled = false;
-            this.ModifiedDateTimePicker.Location = new System.Drawing.Point(292, 59);
+            this.ModifiedDateTimePicker.Location = new System.Drawing.Point(271, 59);
             this.ModifiedDateTimePicker.Name = "ModifiedDateTimePicker";
-            this.ModifiedDateTimePicker.Size = new System.Drawing.Size(121, 20);
+            this.ModifiedDateTimePicker.Size = new System.Drawing.Size(120, 20);
             this.ModifiedDateTimePicker.TabIndex = 5;
             // 
             // CategoryComboBox
             // 
             this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryComboBox.FormattingEnabled = true;
-            this.CategoryComboBox.Location = new System.Drawing.Point(70, 32);
+            this.CategoryComboBox.Location = new System.Drawing.Point(65, 32);
             this.CategoryComboBox.Name = "CategoryComboBox";
             this.CategoryComboBox.Size = new System.Drawing.Size(172, 21);
             this.CategoryComboBox.TabIndex = 6;
             // 
             // TitleTextBox
             // 
-            this.TitleTextBox.Location = new System.Drawing.Point(70, 6);
+            this.TitleTextBox.Location = new System.Drawing.Point(65, 6);
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(449, 20);
             this.TitleTextBox.TabIndex = 7;
