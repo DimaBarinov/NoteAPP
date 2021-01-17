@@ -147,7 +147,14 @@ namespace NoteAppUI
                     NoteListBox.Items.RemoveAt(selectedIndex);
                 }
                 UpdateNotes();
-                ClearSelection();
+                if (NoteListBox.Items.Count != 0)
+                {
+                    NoteListBox.SelectedIndex = 0;
+                }
+                else
+                {
+                    ClearSelection();
+                }
                 ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
         }
