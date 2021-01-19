@@ -212,7 +212,7 @@
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
             this.ExitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.ExitToolStripMenuItem.ShowShortcutKeys = false;
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ExitToolStripMenuItem.Text = "Exit";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -230,14 +230,15 @@
             // 
             this.AddNoteToolStripMenuItem.Name = "AddNoteToolStripMenuItem";
             this.AddNoteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this.AddNoteToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.AddNoteToolStripMenuItem.ShowShortcutKeys = false;
+            this.AddNoteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.AddNoteToolStripMenuItem.Text = "Add Note";
             this.AddNoteToolStripMenuItem.Click += new System.EventHandler(this.AddNoteToolStripMenuItem_Click);
             // 
             // EditNoteToolStripMenuItem
             // 
             this.EditNoteToolStripMenuItem.Name = "EditNoteToolStripMenuItem";
-            this.EditNoteToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.EditNoteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.EditNoteToolStripMenuItem.Text = "Edit Note";
             this.EditNoteToolStripMenuItem.Click += new System.EventHandler(this.EditNoteToolStripMenuItem_Click);
             // 
@@ -245,7 +246,8 @@
             // 
             this.removeNoteToolStripMenuItem.Name = "removeNoteToolStripMenuItem";
             this.removeNoteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.removeNoteToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.removeNoteToolStripMenuItem.ShowShortcutKeys = false;
+            this.removeNoteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeNoteToolStripMenuItem.Text = "Remove Note";
             this.removeNoteToolStripMenuItem.Click += new System.EventHandler(this.removeNoteToolStripMenuItem_Click);
             // 
@@ -262,7 +264,7 @@
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
             this.AboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.AboutToolStripMenuItem.ShowShortcutKeys = false;
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.AboutToolStripMenuItem.Text = "About";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 

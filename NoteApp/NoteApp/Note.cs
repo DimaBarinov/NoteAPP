@@ -5,7 +5,7 @@ namespace NoteApp
     /// <summary>
     /// Класс содержит основную информацию о заметке
     /// </summary>
-    public class Note : ICloneable
+    public class Note : Project, ICloneable
     {
 
         /// <summary>

@@ -2,7 +2,4 @@
 
 namespace NoteApp
 {
-    public class ObservableCollectio<T> : ObservableCollection<Note>
-    {
-    }
 }

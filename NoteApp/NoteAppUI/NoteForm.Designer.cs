@@ -169,7 +169,7 @@
             this.MinimumSize = new System.Drawing.Size(540, 440);
             this.Name = "NoteForm";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Text = "NotesForm";
+            this.Text = "Add/Edit Note";
             this.ResumeLayout(false);
             this.PerformLayout();
 
