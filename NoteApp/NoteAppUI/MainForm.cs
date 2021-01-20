@@ -86,7 +86,14 @@ namespace NoteAppUI
                 _viewedNotes.Add(addNote.Note);
                 NoteListBox.Items.Add(addNote.Note.Title);
                 UpdateNotes();
-                ClearSelection();
+                if (NoteListBox.Items.Count != 0)
+                {
+                    NoteListBox.SelectedIndex = 0;
+                }
+                else
+                {
+                    ClearSelection();
+                }
                 ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
         }
