@@ -36,7 +36,9 @@ namespace NoteAppUI
             LastSelectedNote();
             ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
         }
-
+        /// <summary>
+        /// Последняя выбранная заметка.
+        /// </summary>
         private void LastSelectedNote()
         {
             try
@@ -49,6 +51,7 @@ namespace NoteAppUI
                 return;
             }
         }
+
         /// <summary>
         /// Обновление списка заметок.
         /// </summary>
@@ -264,6 +267,9 @@ namespace NoteAppUI
             aboutForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Обновление списка заметок.
+        /// </summary>
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateNotes();
